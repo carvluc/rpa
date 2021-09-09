@@ -1,0 +1,18 @@
+{
+  "Name": "Rpa",
+  "Description": "Simple Process Project",
+  "ReleaseNotes": null,
+  "MainWorkflow": "Main.xaml",
+  "Dependencies": {},
+  "ExcludedData": [
+    "Private:*",
+    "*password*"
+  ],
+  "ToolVersion": "2.0.5.5",
+  "ProjectVersion": "0.0.0.0",
+  "PackOptions": {},
+  "RuntimeOptions": {},
+  "ProjectDirectory": "C:\\Users\\vasco\\Documents\\akaBot\\Rpa",
+  "ProjectFilePath": "C:\\Users\\vasco\\Documents\\akaBot\\Rpa\\project.json",
+  "ScreenshotsFolder": "C:\\Users\\vasco\\Documents\\akaBot\\Rpa\\.screenshots"
+}

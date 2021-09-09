@@ -1,0 +1,144 @@
+﻿<Activity mc:Ignorable="sap sap2010 sads" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap2010:WorkflowViewState.IdRef="Activity1_1"
+ xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities"
+ xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+ xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities"
+ xmlns:rac="clr-namespace:RCA.Activities.Core;assembly=RCA.Activities.Core"
+ xmlns:s="clr-namespace:System;assembly=mscorlib"
+ xmlns:sads="http://schemas.microsoft.com/netfx/2010/xaml/activities/debugger"
+ xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation"
+ xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation"
+ xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib"
+ xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib"
+ xmlns:sd="clr-namespace:System.Data;assembly=System.Data"
+ xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>RCA.Activities.Core</AssemblyReference>
+      <AssemblyReference>Aka.RPA.Python</AssemblyReference>
+      <AssemblyReference>RCA.Activities.Excel</AssemblyReference>
+      <AssemblyReference>RCA.Activities.Java</AssemblyReference>
+      <AssemblyReference>RCA.Activities.Word</AssemblyReference>
+      <AssemblyReference>RCA.Activities.Browser</AssemblyReference>
+      <AssemblyReference>RCA.Activities.IE</AssemblyReference>
+      <AssemblyReference>RCA.Activities.Windows</AssemblyReference>
+      <AssemblyReference>RCA.Activities.Mail</AssemblyReference>
+      <AssemblyReference>RCA.Activities.GSuite</AssemblyReference>
+      <AssemblyReference>RCA.Activities.FTP</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:Object" Name="Produto" />
+      <Variable x:TypeArguments="scg:List(x:String)" Name="NomesProduto" />
+      <Variable x:TypeArguments="scg:List(x:Int32)" Name="ValoresProduto" />
+      <Variable x:TypeArguments="scg:List(x:String)" Name="LinksProduto" />
+      <Variable x:TypeArguments="sd:DataTable" Name="InputData" />
+    </Sequence.Variables>
+    <rac:InputDialog Label="{x:Null}" Options="{x:Null}" Title="{x:Null}" DisplayName="[263206489] Input Dialog" sap2010:WorkflowViewState.IdRef="InputDialog_1" IsPassword="False">
+      <rac:InputDialog.Result>
+        <OutArgument x:TypeArguments="x:Object">[Produto]</OutArgument>
+      </rac:InputDialog.Result>
+    </rac:InputDialog>
+    <rac:InvokeWorkflowFile ContinueOnError="{x:Null}" WorkflowTimeout="{x:Null}" DisplayName="[647815613] Invoke Workflow File" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" WorkflowFileName="Pelando.xaml">
+      <rac:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="ProdutoIn">[Produto.ToString]</InArgument>
+        <OutArgument x:TypeArguments="scg:List(x:String)" x:Key="NomesProdutoOut">[NomesProduto]</OutArgument>
+        <OutArgument x:TypeArguments="scg:List(x:Int32)" x:Key="ValoresProdutoOut">[ValoresProduto]</OutArgument>
+        <OutArgument x:TypeArguments="scg:List(x:String)" x:Key="LinksProdutoOut">[LinksProduto]</OutArgument>
+      </rac:InvokeWorkflowFile.Arguments>
+    </rac:InvokeWorkflowFile>
+    <rac:BuildDataTable DataTable="[InputData]" DisplayName="[951051420] Build Data Table" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xD;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xD;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xD;&#xA;      &lt;xs:complexType&gt;&#xD;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xD;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xD;&#xA;            &lt;xs:complexType&gt;&#xD;&#xA;              &lt;xs:sequence&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Nome&quot; minOccurs=&quot;0&quot;&gt;&#xD;&#xA;                  &lt;xs:simpleType&gt;&#xD;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xD;&#xA;                      &lt;xs:maxLength value=&quot;250&quot; /&gt;&#xD;&#xA;                    &lt;/xs:restriction&gt;&#xD;&#xA;                  &lt;/xs:simpleType&gt;&#xD;&#xA;                &lt;/xs:element&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Valor&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Link&quot; minOccurs=&quot;0&quot;&gt;&#xD;&#xA;                  &lt;xs:simpleType&gt;&#xD;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xD;&#xA;                      &lt;xs:maxLength value=&quot;250&quot; /&gt;&#xD;&#xA;                    &lt;/xs:restriction&gt;&#xD;&#xA;                  &lt;/xs:simpleType&gt;&#xD;&#xA;                &lt;/xs:element&gt;&#xD;&#xA;              &lt;/xs:sequence&gt;&#xD;&#xA;            &lt;/xs:complexType&gt;&#xD;&#xA;          &lt;/xs:element&gt;&#xD;&#xA;        &lt;/xs:choice&gt;&#xD;&#xA;      &lt;/xs:complexType&gt;&#xD;&#xA;    &lt;/xs:element&gt;&#xD;&#xA;  &lt;/xs:schema&gt;&#xD;&#xA;&lt;/NewDataSet&gt;" />
+    <rac:AddDataRow DataRow="{x:Null}" ArrayRow="[{&quot;Nome do Produto&quot;, &quot;Valor&quot;, &quot;Link de Acesso&quot;}]" DataTable="[InputData]" DisplayName="[893291685] Add Data Row" sap2010:WorkflowViewState.IdRef="AddDataRow_2" />
+    <While DisplayName="[791256061] While" sap2010:WorkflowViewState.IdRef="While_1">
+      <While.Variables>
+        <Variable x:TypeArguments="x:Int32" Default="0" Name="i" />
+        <Variable x:TypeArguments="s:String[]" Name="Sla" />
+      </While.Variables>
+      <While.Condition>[i &lt; NomesProduto.Count]</While.Condition>
+      <Sequence DisplayName="[234645376] Sequence" sap2010:WorkflowViewState.IdRef="Sequence_5">
+        <rac:AddDataRow DataRow="{x:Null}" ArrayRow="[{NomesProduto(i), ValoresProduto(i).ToString, LinksProduto(i)}]" DataTable="[InputData]" DisplayName="[234646866] Add Data Row" sap2010:WorkflowViewState.IdRef="AddDataRow_1" />
+        <Assign DisplayName="[234648352] Assign" sap2010:WorkflowViewState.IdRef="Assign_1">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:Int32">[i]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:Int32">[i + 1]</InArgument>
+          </Assign.Value>
+        </Assign>
+      </Sequence>
+    </While>
+    <rac:InvokeWorkflowFile ContinueOnError="{x:Null}" WorkflowTimeout="{x:Null}" DisplayName="[274744812] Invoke Workflow File" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" WorkflowFileName="Excel.xaml">
+      <rac:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="sd:DataTable" x:Key="Data">[InputData]</InArgument>
+      </rac:InvokeWorkflowFile.Arguments>
+    </rac:InvokeWorkflowFile>
+    <sads:DebugSymbol.Symbol>dy1DOlxVc2Vyc1x2YXNjb1xEb2N1bWVudHNcYWthQm90XFJwYVxNYWluLnhhbWwbRQN0DgIBAU0FURcCASxSBVkeAgEiWgVazBACAR9bBVvyAQIBG1wFbQ0CAQZuBXIeAgECTzFPOgIBLVdTV2ECASpUQlRUAgEoVVNVYQIBJlLKAVLYAQIBJVZUVmQCASNaI1owAgEgW4wBW5kBAgEdWzFbgQECARxeNV44AgEHYgdsEgIBC2EYYTMCAQhwQXBMAgEEbsoBbtYBAgEDYwlj6AECARFkCWsSAgEMY4IBY48BAgEZYzVjdwIBEmkzaToCAQ9mNGY3AgEN</sads:DebugSymbol.Symbol>
+  </Sequence>
+  <sap2010:WorkflowViewState.ViewStateManager>
+    <sap2010:ViewStateManager>
+      <sap2010:ViewStateData Id="InputDialog_1" sap:VirtualizedContainerService.HintSize="464,22" />
+      <sap2010:ViewStateData Id="InvokeWorkflowFile_1" sap:VirtualizedContainerService.HintSize="464,87" />
+      <sap2010:ViewStateData Id="BuildDataTable_1" sap:VirtualizedContainerService.HintSize="464,59" />
+      <sap2010:ViewStateData Id="AddDataRow_2" sap:VirtualizedContainerService.HintSize="464,22" />
+      <sap2010:ViewStateData Id="AddDataRow_1" sap:VirtualizedContainerService.HintSize="242,22" />
+      <sap2010:ViewStateData Id="Assign_1" sap:VirtualizedContainerService.HintSize="242,60" />
+      <sap2010:ViewStateData Id="Sequence_5" sap:VirtualizedContainerService.HintSize="264,246">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="While_1" sap:VirtualizedContainerService.HintSize="464,404" />
+      <sap2010:ViewStateData Id="InvokeWorkflowFile_2" sap:VirtualizedContainerService.HintSize="464,87" />
+      <sap2010:ViewStateData Id="Sequence_1" sap:VirtualizedContainerService.HintSize="486,1005">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Activity1_1" sap:VirtualizedContainerService.HintSize="526,1165" />
+    </sap2010:ViewStateManager>
+  </sap2010:WorkflowViewState.ViewStateManager>
+</Activity>

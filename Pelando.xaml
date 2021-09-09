@@ -1,0 +1,260 @@
+﻿<Activity mc:Ignorable="sap sap2010 sads" x:Class="Sla"
+ xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities"
+ xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+ xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities"
+ xmlns:rab="clr-namespace:RCA.Activities.Browser;assembly=RCA.Activities.Browser"
+ xmlns:sads="http://schemas.microsoft.com/netfx/2010/xaml/activities/debugger"
+ xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation"
+ xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation"
+ xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib"
+ xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib"
+ xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="ProdutoIn" Type="InArgument(x:String)" />
+    <x:Property Name="NomesProdutoOut" Type="OutArgument(scg:List(x:String))" />
+    <x:Property Name="ValoresProdutoOut" Type="OutArgument(scg:List(x:Int32))" />
+    <x:Property Name="LinksProdutoOut" Type="OutArgument(scg:List(x:String))" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap2010:WorkflowViewState.IdRef>Sla_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>System.Windows.Markup</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>RCA.Activities.Core</AssemblyReference>
+      <AssemblyReference>Aka.RPA.Python</AssemblyReference>
+      <AssemblyReference>RCA.Activities.Excel</AssemblyReference>
+      <AssemblyReference>RCA.Activities.Java</AssemblyReference>
+      <AssemblyReference>RCA.Activities.Word</AssemblyReference>
+      <AssemblyReference>RCA.Activities.Browser</AssemblyReference>
+      <AssemblyReference>RCA.Activities.IE</AssemblyReference>
+      <AssemblyReference>RCA.Activities.Windows</AssemblyReference>
+      <AssemblyReference>RCA.Activities.Mail</AssemblyReference>
+      <AssemblyReference>RCA.Activities.GSuite</AssemblyReference>
+      <AssemblyReference>RCA.Activities.FTP</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Sla" sap2010:WorkflowViewState.IdRef="Sequence_2">
+    <rab:OpenBrowser DefaultDownloadFolder="{x:Null}" HttpProxy="{x:Null}" Password="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" UserName="{x:Null}" BrowserName="Chrome" ContinueOnError="False" DisplayName="[714291848] Open Browser(B)" EnsureCleanSession="False" HideCommandPromptWindow="True" sap2010:WorkflowViewState.IdRef="OpenBrowser_1" Maximize="True" QuitBrowserOnCompletedOrFaulted="False" ShowDownloadPrompt="True" Url="https://www.pelando.com.br/" UseInitialBrowserUrl="False">
+      <rab:OpenBrowser.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="[168336263] Sequence" sap2010:WorkflowViewState.IdRef="Sequence_3">
+            <Sequence DisplayName="[168339270] Do" sap2010:WorkflowViewState.IdRef="Sequence_1">
+              <Sequence.Variables>
+                <Variable x:TypeArguments="x:String" Name="StringLegal" />
+                <Variable x:TypeArguments="x:String" Name="NomeProduto" />
+                <Variable x:TypeArguments="x:String" Name="ValorProduto" />
+                <Variable x:TypeArguments="x:String" Name="LinkProduto" />
+                <Variable x:TypeArguments="x:Int32" Default="1" Name="i" />
+                <Variable x:TypeArguments="scg:List(x:String)" Default="[new List(of String)]" Name="NomesProduto" />
+                <Variable x:TypeArguments="scg:List(x:Int32)" Default="[new List(of Int32)]" Name="ValoresProduto" />
+                <Variable x:TypeArguments="scg:List(x:String)" Default="[new List(of String)]" Name="LinksProduto" />
+              </Sequence.Variables>
+              <rab:TypeInto Browser="{x:Null}" Comments="{x:Null}" LastElement="{x:Null}" LastLocator="{x:Null}" SearchParameter="{x:Null}" ContinueOnError="False" DisplayName="[168340761] Type Into(B)" EmptyField="True" sap2010:WorkflowViewState.IdRef="TypeInto_1" SearchMethod="ID" Selector="&lt;html omit:app='' omit:title='' /&gt;&lt;webctrl id='' name='' omit:class='' xpath='//*[@id=&amp;quot;root&amp;quot;]/div/div/header/div/div[2]/div/div[1]/form/div/input' tag='' /&gt;" Text="[ProdutoIn]" TimeoutMS="30000" WaitVisible="True" />
+              <rab:SendHotKeys Browser="{x:Null}" Comments="{x:Null}" LastElement="{x:Null}" LastLocator="{x:Null}" SearchParameter="{x:Null}" Alt="False" ContinueOnError="False" Ctrl="False" DisplayName="[976182399] Send Hot Keys(B)" sap2010:WorkflowViewState.IdRef="SendHotKeys_1" SearchMethod="ID" Selector="&lt;html omit:app='' omit:title='' /&gt;&lt;webctrl id='' name='' omit:class='' xpath='//*[@id=&amp;quot;root&amp;quot;]/div/div/header/div/div[2]/div/div[1]/form/div/input' tag='' /&gt;" Shift="False" SpecialKey="KEY_ENTER" TimeoutMS="30000" WaitVisible="True" Win="False" />
+              <While DisplayName="[415469997] While" sap2010:WorkflowViewState.IdRef="While_1">
+                <While.Variables>
+                  <Variable x:TypeArguments="x:String" Default="//*[@id=&amp;quot;root&amp;quot;]/div/div/main/div/div/div[1]/div[%var%]/div[1]/div/a" Name="xpathNomeProdutoBase" />
+                  <Variable x:TypeArguments="x:String" Default="//*[@id=&amp;quot;root&amp;quot;]/div/div/main/div/div/div[1]/div[%var%]/div[1]/div/div[2]/a[1]/span/span" Name="xpathValorProdutoBase" />
+                  <Variable x:TypeArguments="x:String" Default="//*[@id=&amp;quot;root&amp;quot;]/div/div/main/div/div/div[1]/div[%var%]/div[1]/div/a" Name="xpathLinkProdutoBase" />
+                  <Variable x:TypeArguments="x:String" Name="xpathNomeProduto" />
+                  <Variable x:TypeArguments="x:String" Name="xpathValorProduto" />
+                  <Variable x:TypeArguments="x:String" Name="xpathLinkProduto" />
+                </While.Variables>
+                <While.Condition>[i &lt;= 5]</While.Condition>
+                <Sequence DisplayName="[059381398] Sequence" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                  <If Condition="[i &lt;&gt; 3]" DisplayName="[773624941] If" sap2010:WorkflowViewState.IdRef="If_1">
+                    <If.Then>
+                      <Sequence DisplayName="[827317446] Sequence" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                        <Assign DisplayName="[827318933] Assign" sap2010:WorkflowViewState.IdRef="Assign_4">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:String">[xpathNomeProduto]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:String">[xpathNomeProdutoBase.Replace("%var%", i.ToString)]</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                        <Assign DisplayName="[827320421] Assign" sap2010:WorkflowViewState.IdRef="Assign_5">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:String">[xpathValorProduto]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:String">[xpathValorProdutoBase.Replace("%var%", i.ToString)]</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                        <Assign DisplayName="[237827827] Assign" sap2010:WorkflowViewState.IdRef="Assign_6">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:String">[xpathLinkProduto]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:String">[xpathLinkProdutoBase.Replace("%var%", i.ToString)]</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                        <Sequence DisplayName="[059384019] Sequence" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                          <rab:GetText Browser="{x:Null}" Comments="{x:Null}" LastElement="{x:Null}" LastLocator="{x:Null}" SearchParameter="{x:Null}" ContinueOnError="False" DisplayName="[059385503] Get Text" sap2010:WorkflowViewState.IdRef="GetText_1" Result="[NomeProduto]" SearchMethod="ID" Selector="&lt;html omit:app='' omit:title='' /&gt;&lt;webctrl id='' name='' omit:class='' xpath='{{xpathNomeProduto}}' tag='' /&gt;" TimeoutMS="30000" WaitVisible="False" />
+                          <rab:GetText Browser="{x:Null}" Comments="{x:Null}" LastElement="{x:Null}" LastLocator="{x:Null}" SearchParameter="{x:Null}" ContinueOnError="False" DisplayName="[059386991] Get Text" sap2010:WorkflowViewState.IdRef="GetText_2" Result="[ValorProduto]" SearchMethod="ID" Selector="&lt;html omit:app='' omit:title='' /&gt;&lt;webctrl id='' name='' omit:class='' xpath='{{xpathValorProduto}}' tag='' /&gt;" TimeoutMS="30000" WaitVisible="False" />
+                          <rab:GetWebAttribute Browser="{x:Null}" Comments="{x:Null}" LastElement="{x:Null}" LastLocator="{x:Null}" SearchParameter="{x:Null}" Attribute="href" ContinueOnError="False" DisplayName="[059392947] Get Web Attribute(B)" sap2010:WorkflowViewState.IdRef="GetWebAttribute_2" SearchMethod="ID" Selector="&lt;html omit:app='' omit:title='' /&gt;&lt;webctrl id='' name='' omit:class='' xpath='{{xpathLinkProduto}}' tag='' /&gt;" TimeoutMS="30000" Value="[LinkProduto]" WaitVisible="False" />
+                          <AddToCollection x:TypeArguments="x:String" Collection="[NomesProduto]" DisplayName="[078760741] Add To Collection" sap2010:WorkflowViewState.IdRef="AddToCollection`1_1" Item="[NomeProduto]" />
+                          <AddToCollection x:TypeArguments="x:Int32" Collection="[ValoresProduto]" DisplayName="[250627041] Add To Collection" sap2010:WorkflowViewState.IdRef="AddToCollection`1_2" Item="[Convert.toInt32(ValorProduto)]" />
+                          <AddToCollection x:TypeArguments="x:String" Collection="[LinksProduto]" DisplayName="[327878163] Add To Collection" sap2010:WorkflowViewState.IdRef="AddToCollection`1_3" Item="[LinkProduto]" />
+                        </Sequence>
+                      </Sequence>
+                    </If.Then>
+                  </If>
+                  <Assign DisplayName="[319697677] Assign" sap2010:WorkflowViewState.IdRef="Assign_7">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:Int32">[i]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:Int32">[i + 1]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                </Sequence>
+              </While>
+              <Assign DisplayName="[058140735] Assign" sap2010:WorkflowViewState.IdRef="Assign_8">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="scg:List(x:String)">[NomesProdutoOut]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="scg:List(x:String)">[NomesProduto]</InArgument>
+                </Assign.Value>
+              </Assign>
+              <Assign DisplayName="[083884391] Assign" sap2010:WorkflowViewState.IdRef="Assign_9">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="scg:List(x:Int32)">[ValoresProdutoOut]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="scg:List(x:Int32)">[ValoresProduto]</InArgument>
+                </Assign.Value>
+              </Assign>
+              <Assign DisplayName="[106485514] Assign" sap2010:WorkflowViewState.IdRef="Assign_10">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="scg:List(x:String)">[LinksProdutoOut]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="scg:List(x:String)">[LinksProduto]</InArgument>
+                </Assign.Value>
+              </Assign>
+            </Sequence>
+          </Sequence>
+        </ActivityAction>
+      </rab:OpenBrowser.Body>
+    </rab:OpenBrowser>
+    <sads:DebugSymbol.Symbol>dzBDOlxVc2Vyc1x2YXNjb1xEb2N1bWVudHNcYWthQm90XFJwYVxQZWxhbmRvLnhhbWxLTAO6AQ4CAQFNBbgBFwIBAk3DAU3KAQIBZ021A03SAwIBZlMLtQEWAgEDVA20ARgCAQRaPVpAAgEIW0hbXwIBB1xHXF0CAQZdSF1fAgEFXw9fnQQCAWBgD2DMBAIBXGEPmwEXAgEYnAEPowEYAgETpAEPqwEYAgEOrAEPswEYAgEJX6YCX+IDAgFlX4AEX4cEAgFkX50BX6QBAgFjX+gDX/UDAgFhYLcCYPMDAgFfYKMEYKoEAgFeYKwBYLMBAgFdY0BjlwECARtkQGSrAQIBGmVAZZcBAgEZaxGaARwCAR5qImotAgEcoQFEoQFSAgEWngFFngFWAgEUqQFDqQFTAgERpgFEpgFXAgEPsQFEsQFSAgEMrgFFrgFWAgEKbBORARgCASSSAROZARwCAR9sIWwxAgElbhePASICASeXAT2XAUQCASKUAT6UAUECASBvGXYiAgFWdxl+IgIBUH8ZhgEiAgFKhwEZjgEkAgEodER0dwIBWXFFcVcCAVd8RHx4AgFTeUV5WAIBUYQBRIQBdwIBTYEBRYEBVwIBS4gBG4gB1QMCAUSJARuJAdcDAgE+igEbigGBBAIBN4sBG4sB3AECATKMARuMAe8BAgEujQEbjQHcAQIBKYgBsQKIAawDAgFJiAG3A4gBvgMCAUiIAagBiAGvAQIBR4gBhgKIAZUCAgFFiQGyAokBrgMCAUOJAbkDiQHAAwIBQokBqAGJAa8BAgFBiQGGAokBlgICAT+KAdsDigHqAwIBPIoBxwKKAcIDAgE7igHNA4oB1AMCATqKAcEBigHIAQIBOYoBqgGKAbABAgE4iwFSiwFiAgE1iwHKAYsB2QECATOMAVGMAWMCATCMAcsBjAHsAQIBL40BUo0BYgIBLI0BygGNAdkBAgEq</sads:DebugSymbol.Symbol>
+  </Sequence>
+  <sap2010:WorkflowViewState.ViewStateManager>
+    <sap2010:ViewStateManager>
+      <sap2010:ViewStateData Id="TypeInto_1" sap:VirtualizedContainerService.HintSize="531,96" />
+      <sap2010:ViewStateData Id="SendHotKeys_1" sap:VirtualizedContainerService.HintSize="531,120" />
+      <sap2010:ViewStateData Id="Assign_4" sap:VirtualizedContainerService.HintSize="336,60" />
+      <sap2010:ViewStateData Id="Assign_5" sap:VirtualizedContainerService.HintSize="336,60" />
+      <sap2010:ViewStateData Id="Assign_6" sap:VirtualizedContainerService.HintSize="336,60" />
+      <sap2010:ViewStateData Id="GetText_1" sap:VirtualizedContainerService.HintSize="314,68" />
+      <sap2010:ViewStateData Id="GetText_2" sap:VirtualizedContainerService.HintSize="314,68" />
+      <sap2010:ViewStateData Id="GetWebAttribute_2" sap:VirtualizedContainerService.HintSize="314,96" />
+      <sap2010:ViewStateData Id="AddToCollection`1_1" sap:VirtualizedContainerService.HintSize="314,22" />
+      <sap2010:ViewStateData Id="AddToCollection`1_2" sap:VirtualizedContainerService.HintSize="314,22" />
+      <sap2010:ViewStateData Id="AddToCollection`1_3" sap:VirtualizedContainerService.HintSize="314,22" />
+      <sap2010:ViewStateData Id="Sequence_4" sap:VirtualizedContainerService.HintSize="336,622">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Sequence_6" sap:VirtualizedContainerService.HintSize="358,1046">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="If_1" sap:VirtualizedContainerService.HintSize="483,1193" />
+      <sap2010:ViewStateData Id="Assign_7" sap:VirtualizedContainerService.HintSize="483,60" />
+      <sap2010:ViewStateData Id="Sequence_5" sap:VirtualizedContainerService.HintSize="505,1417">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="While_1" sap:VirtualizedContainerService.HintSize="531,1574">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Assign_8" sap:VirtualizedContainerService.HintSize="531,60" />
+      <sap2010:ViewStateData Id="Assign_9" sap:VirtualizedContainerService.HintSize="531,60" />
+      <sap2010:ViewStateData Id="Assign_10" sap:VirtualizedContainerService.HintSize="531,60" />
+      <sap2010:ViewStateData Id="Sequence_1" sap:VirtualizedContainerService.HintSize="553,2294">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Sequence_3" sap:VirtualizedContainerService.HintSize="575,2418">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="OpenBrowser_1" sap:VirtualizedContainerService.HintSize="589,2517" />
+      <sap2010:ViewStateData Id="Sequence_2" sap:VirtualizedContainerService.HintSize="611,2641">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Sla_1" sap:VirtualizedContainerService.HintSize="651,2761" />
+    </sap2010:ViewStateManager>
+  </sap2010:WorkflowViewState.ViewStateManager>
+</Activity>
